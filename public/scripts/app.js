@@ -7,8 +7,8 @@
         'angular-loading-bar'
     ])
         .constant('urls', {
-            BASE: 'http://jwt.dev:8000',
-            BASE_API: 'http://api.jwt.dev:8000/v1'
+            BASE: 'http://192.168.59.103/laravel5-angular-jwt/public',
+            BASE_API: 'http://192.168.59.103/laravel5-angular-jwt/public/v1'
         })
         .config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
             $routeProvider.
@@ -32,7 +32,7 @@
                     redirectTo: '/'
                 });
 
-            $httpProvider.interceptors.push(['$q', '$location', '$localStorage', function ($q, $location, $localStorage) {
+            $httpProvider.interceptors.push(['$q', '$location', '$localStorage', 'urls', function ($q, $location, $localStorage, urls) {
                 return {
                     'request': function (config) {
                         config.headers = config.headers || {};
@@ -44,7 +44,9 @@
                     'responseError': function (response) {
                         if (response.status === 401 || response.status === 403) {
                             delete $localStorage.token;
-                            $location.path('/signin');
+                            setTimeout(function(){
+                                window.location = urls.BASE;
+                            }, 500);
                         }
                         return $q.reject(response);
                     }
@@ -52,7 +54,7 @@
             }]);
         }
         ]).run(function($rootScope, $location, $localStorage) {
-            $rootScope.$on( "$routeChangeStart", function(event, next) {
+            $rootScope.$on( "$routeChangeStart", function(event, next) {                
                 if ($localStorage.token == null) {
                     if ( next.templateUrl === "partials/restricted.html") {
                         $location.path("/signin");

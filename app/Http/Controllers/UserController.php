@@ -1,14 +1,10 @@
 <?php namespace App\Http\Controllers;
 
 use App\User;
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
-
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Response;
-
 use Tymon\JWTAuth\Facades\JWTAuth;
+use Illuminate\Http\Response as HttpResponse;
 
 class UserController extends Controller {
 

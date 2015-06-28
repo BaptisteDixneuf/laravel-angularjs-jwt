@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel 5 / AngularJS JWT example</title>
+    <title>Dixneuf Baptiste</title>
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/bootstrap.superhero.min.css">
-    <link rel="stylesheet" href="/lib/loading-bar.css">
+    <link rel="stylesheet" href="{{ URL::asset('/css/bootstrap.superhero.min.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('/lib/loading-bar.css') }}">
     <link rel="stylesheet" href="{{ assetVersioned('/css/app.css') }}">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -29,14 +29,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#/">JWT Angular example</a>
+                <a class="navbar-brand" href="#/">Dixneuf Baptiste</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li data-ng-show="token"><a ng-href="#/restricted">Restricted area</a></li>
-                    <li data-ng-hide="token"><a ng-href="#/signin">Signin</a></li>
-                    <li data-ng-hide="token"><a ng-href="#/signup">Signup</a></li>
-                    <li data-ng-show="token"><a ng-href="#/" ng-click="logout()">Logout</a></li>
+                    <li data-ng-show="token"><a ng-href="#/restricted">Mon compte</a></li>
+                    <li data-ng-hide="token"><a ng-href="#/signin">Se connecter</a></li>
+                    <li data-ng-hide="token"><a ng-href="#/signup">S'inscrire</a></li>
+                    <li data-ng-show="token"><a ng-href="#/" ng-click="logout()">Déconnexion</a></li>
                 </ul>
             </div>
         </div>
@@ -44,7 +44,7 @@
     <div class="container" ng-view=""></div>
     <div class="footer">
         <div class="container">
-            <p class="muted credit">Example by <a href="http://www.toptal.com/resume/tino-tkalec" title="Tino Tkalec">Tino Tkalec</a></p>
+            <p class="muted credit">Réalisé par <a href="http://baptistedixneuf.fr/" title="Dixneuf Baptiste">Dixneuf Baptiste</a></p>
         </div>
     </div>
 
@@ -52,8 +52,8 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular-route.min.js"></script>
-    <script src="/lib/ngStorage.js"></script>
-    <script src="/lib/loading-bar.js"></script>
+    <script src="{{ URL::asset('/lib/ngStorage.js') }}"></script>
+    <script src="{{ URL::asset('/lib/loading-bar.js') }}"></script>
     <script src="{{ assetVersioned('/scripts/app.js') }}"></script>
     <script src="{{ assetVersioned('/scripts/controllers.js') }}"></script>
     <script src="{{ assetVersioned('/scripts/services.js') }}"></script>

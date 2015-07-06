@@ -4,11 +4,12 @@
     angular.module('app', [
         'ngStorage',
         'ngRoute',
-        'angular-loading-bar'
+        'angular-loading-bar',
+        'ngResource'
     ])
         .constant('urls', {
             BASE: 'http://192.168.59.103/laravel5-angular-jwt/public',
-            BASE_API: 'http://192.168.59.103/laravel5-angular-jwt/public/v1'
+            BASE_API: 'http://192.168.59.103/laravel5-angular-jwt/public/api/v1'
         })
         .config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
             $routeProvider.
@@ -27,6 +28,22 @@
                 when('/restricted', {
                     templateUrl: 'partials/restricted.html',
                     controller: 'RestrictedController'
+                }).
+                when('/postsIndex', {
+                    templateUrl: 'partials/posts/postsIndex.html',
+                    controller: 'PostsController'
+                }).
+                when('/postCreate', {
+                    templateUrl: 'partials/posts/postCreate.html',
+                    controller: 'PostsController'
+                }).
+                when('/postView/:idPost', {
+                    templateUrl: 'partials/posts/postView.html',
+                    controller: 'PostsController'
+                }).
+                when('/postUpdate/:idPost', {
+                    templateUrl: 'partials/posts/postUpdate.html',
+                    controller: 'PostsController'
                 }).
                 otherwise({
                     redirectTo: '/'

@@ -55,5 +55,41 @@
                 }, function () {
                     $rootScope.error = 'Failed to fetch restricted API content.';
                 });
+        }])
+        .controller('PostsController', ['$rootScope', '$scope', '$routeParams', 'Post',
+            function ($rootScope, $scope, $routeParams, Post) {
+
+                $scope.posts = Post.query();
+                $scope.post = new Post();
+
+                //View
+                if(typeof $routeParams.idPost !== 'undefined') {
+                    $scope.post = Post.get({ id: $routeParams.idPost });
+                }
+
+                //Create
+                $scope.addPost = function() {
+                    console.log($scope.post);
+                    $scope.post.$save(function() {
+                        console.log('save');
+                    });
+                };
+
+                //Update
+                $scope.updatePost = function() {
+                    $scope.post.$update(function() {
+                        console.log('update');
+                    });
+                };
+
+                //Delete
+                $scope.deletePost= function(post) { // Delete a movie. Issues a DELETE to /api/movies/:id
+
+                        post.$delete(function() {
+                            $window.location.href = ''; //redirect to home
+                        });
+
+                };
+
         }]);
 })();

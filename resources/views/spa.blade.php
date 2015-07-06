@@ -52,6 +52,7 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular-route.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular-resource.js"></script>
     <script src="{{ URL::asset('/lib/ngStorage.js') }}"></script>
     <script src="{{ URL::asset('/lib/loading-bar.js') }}"></script>
     <script src="{{ assetVersioned('/scripts/app.js') }}"></script>

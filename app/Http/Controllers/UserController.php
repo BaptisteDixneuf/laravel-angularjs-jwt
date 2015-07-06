@@ -17,7 +17,7 @@ class UserController extends Controller {
         try {
             $user = User::create($credentials);
         } catch (Exception $e) {
-            return Response::json(['error' => $credentials], HttpResponse::HTTP_CONFLICT);
+            return Response::json(['error' => 'User already exists.'], HttpResponse::HTTP_CONFLICT);
         }
 
         $token = JWTAuth::fromUser($user);

@@ -146,6 +146,7 @@ return [
 		'App\Providers\RouteServiceProvider',
 
 		'Barryvdh\Cors\CorsServiceProvider',
+        /*'Barryvdh\Debugbar\ServiceProvider',*/
 		'Tymon\JWTAuth\Providers\JWTAuthServiceProvider'
 
 	],
@@ -172,6 +173,7 @@ return [
 		'Config'    => 'Illuminate\Support\Facades\Config',
 		'Cookie'    => 'Illuminate\Support\Facades\Cookie',
 		'Crypt'     => 'Illuminate\Support\Facades\Crypt',
+        'Debugbar'  => 'Barryvdh\Debugbar\Facade',
 		'DB'        => 'Illuminate\Support\Facades\DB',
 		'Eloquent'  => 'Illuminate\Database\Eloquent\Model',
 		'Event'     => 'Illuminate\Support\Facades\Event',

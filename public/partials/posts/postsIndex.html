@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Mes posts</div>
+            <div class="panel-body">
+                <p>Ensemble des vos posts</p>
+                <p><a href="#/postCreate" class="btn btn-default btn-primary" role="button">Créer un post</a></p>
+            </div>
+
+            <!-- Table -->
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Titre</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="post in posts">
+                        <td>{{post.id}}</td>
+                        <td>{{post.title}}</td>
+                        <td>
+                            <a href="#/postView/{{post.id}}/" class="btn btn-default btn-primary" role="button">Voir</a>
+                            <a href="#/postUpdate/{{post.id}}/" class="btn btn-default btn-primary" role="button">Modifier</a>
+                            <a ng-click="deletePost(post)" class="btn btn-default btn-primary" role="button">Supprimer</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>

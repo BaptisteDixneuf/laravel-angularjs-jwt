@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="col-lg-12 ">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <strong>Créer un post</strong>
+            </div>
+            <div class="panel-body">
+                <form class="form-horizontal" role="form" ng-submit="updatePost()">
+
+                    <div class="form-group">
+                        <label for="title" class="col-sm-2 control-label">Titre</label>
+
+                        <div class="col-sm-10">
+                            <input type="title" class="form-control" id="title" placeholder="Titre" ng-model="post.title">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="slug" class="col-sm-2 control-label">Slug</label>
+
+                        <div class="col-sm-10">
+                            <input type="slug" class="form-control" id="Slug" placeholder="slug" ng-model="post.slug">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="content" class="col-sm-2 control-label">Contenu</label>
+
+                        <div class="col-sm-10">
+                            <textarea type="content" class="form-control" id="content" placeholder="Contenu" ng-model="post.content"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="user_id" class="col-sm-2 control-label">user_id</label>
+
+                        <div class="col-sm-10">
+                            <input type="user_id" class="form-control" id="user_id" placeholder="user_id" ng-model="post.user_id">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary pull-right">Enregistrer</button>
+                        </div>
+                    </div>
+
+                    <p data-ng-show="error" class="error">{{ error }}</p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

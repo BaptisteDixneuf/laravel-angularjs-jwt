@@ -64,4 +64,15 @@
             };
         }
         ]);
+    angular.module('app')
+        .factory('Post', function($resource,urls) {
+            return $resource(urls.BASE_API+'/posts/:id', { id: '@id' }, {
+                update: {
+                    method: 'PUT'
+                }
+            });
+    });
+
+
+
 })();

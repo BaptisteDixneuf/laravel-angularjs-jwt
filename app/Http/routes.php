@@ -33,7 +33,8 @@ Route::get('/restricted', [
         return Response::json([
             'data' => [
                 'email' => $user->email,
-                'registered_at' => $user->created_at->toDateTimeString()
+                'registered_at' => $user->created_at->toDateTimeString(),
+                'role' => $user->role
             ]
         ]);
     }
@@ -42,7 +43,8 @@ Route::get('/restricted', [
 /**
  * Fetches a restricted resource from API subdomain using CORS
  */
-Route::group(['domain' => '192.168.59.103', 'prefix' => 'v1'], function () {
+Route::group(['domain' => '192.168.59.103', 'prefix' => 'api/v1'], function () {
+
     Route::get('/restricted', function () {
         try {
             JWTAuth::parseToken()->toUser();
@@ -52,4 +54,7 @@ Route::group(['domain' => '192.168.59.103', 'prefix' => 'v1'], function () {
 
         return ['data' => 'This has come from a dedicated API subdomain with restricted access.'];
     });
+
+    Route::resource('/posts','PostController');
+
 });

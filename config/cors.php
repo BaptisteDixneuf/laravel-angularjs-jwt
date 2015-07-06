@@ -12,7 +12,7 @@ return [
     ],
 
     'paths' => [
-        'v1/*' => [
+        'api/v1/*' => [
             'allowedOrigins' => ['*'],
             'allowedHeaders' => ['*'],
             'allowedMethods' => ['*'],

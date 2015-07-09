@@ -56,8 +56,13 @@
                     $rootScope.error = 'Failed to fetch restricted API content.';
                 });
         }])
-        .controller('PostsController', ['$rootScope', '$scope', '$routeParams', 'Post',
-            function ($rootScope, $scope, $routeParams, Post) {
+        .controller('PostsController', ['$rootScope', '$scope', '$routeParams', '$location', 'Post', 'flash', 
+            function ($rootScope, $scope, $routeParams, $location, Post, flash) {
+
+                //Service Flash
+                $scope.flash = flash;              
+                
+
 
                 $scope.posts = Post.query();
                 $scope.post = new Post();
@@ -71,14 +76,20 @@
                 $scope.addPost = function() {
                     console.log($scope.post);
                     $scope.post.$save(function() {
-                        console.log('save');
+                        flash.setMessage("Nouveau post enregistré");
+                        $location.path("/postsIndex");
+                    }, function () {
+                        $rootScope.error = 'Erreur lors de la création.';
                     });
                 };
 
                 //Update
                 $scope.updatePost = function() {
                     $scope.post.$update(function() {
-                        console.log('update');
+                        flash.setMessage("Nouveau post mis à jour");
+                        $location.path("/postsIndex");
+                    }, function () {
+                        $rootScope.error = 'Erreur lors de la mise à jour.';
                     });
                 };
 

@@ -7,6 +7,10 @@
                 <p>Ensemble des vos posts</p>
                 <p><a href="#/postCreate" class="btn btn-default btn-primary" role="button">Créer un post</a></p>
             </div>
+            <div class="alert" ng-show="flash.getMessage()">
+                <b>Alert!</b>
+                <p>{{flash.getMessage()}}</p>
+            </div>
 
             <!-- Table -->
             <table class="table">
